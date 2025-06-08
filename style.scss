@@ -1,0 +1,258 @@
+$primary: #ff6f61;
+$dark: #1e1e1e;
+$bg: #f8f9fa;
+$hero: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+$accent: #00C2D1;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: $bg;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+  color: white;
+  gap: 10px;
+  background-color: #001f3f;
+  padding: 1rem;
+
+  .check-icon {
+    animation: draw-box 1s ease forwards, draw-check 1s ease 1s forwards;
+
+    .check {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: draw-check 1s ease-out 1s forwards;
+    }
+
+    .box {
+      stroke-dasharray: 320;
+      stroke-dashoffset: 320;
+      animation: draw-box 1s ease-out forwards;
+    }
+  }
+}
+
+@keyframes draw-box {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.top-bar {
+  background-color: $dark;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .quote-btn {
+    background-color: $primary;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
+}
+
+.navbar {
+  background: white;
+  border-bottom: 1px solid #ddd;
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+  }
+}
+
+.hero {
+  background: $hero;
+  color: white;
+  padding: 3rem 0;
+
+  .hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+
+    .hero-text {
+      flex: 1 1 30rem;
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease-in;
+      }
+
+      p {
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn {
+        background: $primary;
+        padding: 0.75rem 1.5rem;
+        color: white;
+        border: none;
+        border-radius: 0.3rem;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: darken($primary, 10%);
+        }
+      }
+    }
+
+    .form-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        input,
+        button {
+          padding: 0.75rem;
+          font-size: 1rem;
+          border-radius: 0.3rem;
+          border: 1px solid #ccc;
+        }
+
+        button {
+          background-color: #0f2027;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.services {
+  background: #f0f0f0;
+  padding: 3rem 0;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 2rem;
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: $primary;
+      }
+    }
+  }
+}
+
+.footer-cta {
+  background: #203a43;
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    @extend .hero .hero-text .btn;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+}
